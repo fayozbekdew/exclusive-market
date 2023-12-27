@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer {
+  .myContainer {
+    @apply mx-auto w-full max-w-[1280px] px-[20px];
+  }
+}
+html,
+body {
+  height: 100%;
+  user-select: none;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden !important;
+  background: #fff;
+  /* color: aliceblue; */
+}
+/* carousel-update */
+.react-multi-carousel-item{
+  width: 300px !important;
+}  
+
+/* SCROOL-EFECT */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #DB4444; 
+}
