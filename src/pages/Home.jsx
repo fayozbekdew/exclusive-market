@@ -1,4 +1,4 @@
-import { Categories, Hero } from "../sections"
+import { BestProducts, Categories, Features, Hero, OurProducts } from "../sections"
 import MostSales from "../sections/MostSales"
 
 const Home = () => {
@@ -7,6 +7,9 @@ const Home = () => {
     <Hero/>
     <MostSales/>
     <Categories/>
+    <BestProducts/>
+    <OurProducts/>
+    <Features/>
     </>
   )
 }

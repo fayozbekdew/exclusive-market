@@ -15,7 +15,7 @@ const Categories = () => {
   return (
     <div className="myContainer mt-[80px] border-b-2 pb-14">
       <Intro name={"Categories"} />
-      <h2 className="text-[36px] font-semibold leading-[48px] text-black mr-[87px]">
+      <h2 className="text-[36px] font-semibold leading-[48px] text-black mr-[87px] my-5">
         Browse By Category
       </h2>
       <div className="flex items-center justify-center  ">
