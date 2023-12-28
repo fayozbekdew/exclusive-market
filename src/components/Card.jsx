@@ -1,16 +1,19 @@
 import { MdFavoriteBorder } from "react-icons/md";
 import { IoEyeOutline } from "react-icons/io5";
 
-const Card = ({ data, discount }) => {
+const Card = ({data, discount }) => {
+  function visibleFn(data){
+    console.log(data);
+  }
   return (
-    <div key={data.id} className="w-[270px] h-[350px]  flex flex-col ">
+    <div key={crypto.randomUUID()} className={`${data.visible  ? 'h-2' : ''} w-[270px] h-[350px]   flex flex-col group card `}>
       <div className="w-[270px] h-[250px] bg-[#F5F5F5] flex items-center justify-center relative">
-        <img src={data.img} alt="product img" className="h-[152px] w-[172px]" />
+        <img src={data.img} alt="product img" className="transition-all group-hover:scale-[1.1] h-[152px] w-[172px]" />
         <span className="flex flex-col items-center gap-y-1 absolute right-3 top-2">
           <button className="bg-white w-8 h-8 rounded-full flex items-center justify-center">
             <MdFavoriteBorder className="w-[22px] h-[22px]" />
           </button>
-          <button className="bg-white w-8 h-8 rounded-full flex items-center justify-center">
+          <button onClick={() => visibleFn(this)} className="bg-white w-8 h-8 rounded-full flex items-center justify-center">
             <IoEyeOutline className="w-[22px] h-[22px]" />
           </button>
         </span>
@@ -18,7 +21,7 @@ const Card = ({ data, discount }) => {
         -{data.discount ? data.discount : 0}%
         </button> : ''}
       </div>
-      <div className="flex flex-col gap-y-2 mt-3">
+      <div className="flex flex-col gap-y-2 mt-3 pl-2 pb-2">
         <h4 className="font-semibold text-[16px] leading-[24px] uppercase">
           Product name
         </h4>
@@ -33,7 +36,7 @@ const Card = ({ data, discount }) => {
         <div className="flex items-center">
           {data.rate.map((star) => {
             return (
-              <div key={data.id}>
+              <div key={crypto.randomUUID()}>
                 <img src={star} className="h-5 w-5" alt="" />
               </div>
             );

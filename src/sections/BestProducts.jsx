@@ -1,3 +1,4 @@
+import { Fragment } from "react"
 import { Link } from "react-router-dom"
 import { musicInstrument, product1, product2, product3, product4, star } from "../assets"
 import { Card, Intro } from "../components"
@@ -23,9 +24,9 @@ const BestProducts = () => {
     <ul className="flex items-center justify-between mt-14 mb-24">
         {BestProduct.map( element => {
             return(
-                <>
+                <Fragment key={crypto.randomUUID()}>
                 <Card data={element}/>
-                </>
+                </Fragment>
             )
         })}
     </ul>

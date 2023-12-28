@@ -1,16 +1,17 @@
 import { CiSearch } from "react-icons/ci";
 import { MdFavoriteBorder } from "react-icons/md";
 import { SlBasket } from "react-icons/sl";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="border-b-2">
       <div className="myContainer flex items-center justify-between h-[60px]  ">
       <a className="text-[24px] font-bold leading-[24px]" href="/">Exclusive</a>
       <ul className="flex items-center gap-x-[48px]">
-        <li><a className="text-[16px] font-normal leading-[24px] active:underline" href="">Home</a></li>
-        <li><a className="text-[16px] font-normal leading-[24px] active:underline" href="">Contact</a></li>
-        <li><a className="text-[16px] font-normal leading-[24px] active:underline" href="">About</a></li>
-        <li><a className="text-[16px] font-normal leading-[24px] active:underline" href="">SignUp</a></li>
+        <li><Link className="text-[16px] font-normal leading-[24px] active:underline" to="">Home</Link></li>
+        <li><Link className="text-[16px] font-normal leading-[24px] active:underline" to="/contact">Contact</Link></li>
+        <li><Link className="text-[16px] font-normal leading-[24px] active:underline" to="/about">About</Link></li>
+        <li><Link className="text-[16px] font-normal leading-[24px] active:underline" to="/signup">SignUp</Link></li>
       </ul>
       <div className="flex items-center gap-x-[20px]">
        <small className="relative flex items-center" >

@@ -1,8 +1,9 @@
-import {  Card, Intro } from "../components";
+import {  Button, Card, Intro } from "../components";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // images
 import { product1, product10, product11, product12, product13, product14, product15, product16, product2, product3, product4, product5, product6, product7, product8, product9,star } from "../assets";
+import { Fragment } from "react";
 
 
 const MostSales = () => {
@@ -66,13 +67,13 @@ const MostSales = () => {
       >
         {productDb.map( product => {
             return(
-           <>
-            <Card data={product} discount/>
-           </>
+           <Fragment key={crypto.randomUUID()}>
+            <Card data={product}  discount/>
+           </Fragment>
             )
         })}
       </Carousel>
-      <a className="w-[234px] h-[56px] bg-[#DB4444] flex items-center justify-center rounded-sm  text-white text-[16px] font-semibold leading-[24px] mx-auto" href="#">View All Products</a>
+      <Button name='View All Products' link='#' />
     </div>
   );
 };

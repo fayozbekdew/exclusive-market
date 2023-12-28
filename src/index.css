@@ -25,6 +25,16 @@ body {
 .react-multi-carousel-item{
   width: 300px !important;
 }  
+.aboutSlider .react-multi-carousel-track .react-multi-carousel-item{
+  width: 350px !important;
+}
+.aboutSlider .react-multi-carousel-track {
+  display: flex;
+  column-gap: 32px !important;
+}
+.react-multi-carousel-dot--active button{
+  background: #DB4444;
+}
 
 /* SCROOL-EFECT */
 ::-webkit-scrollbar {
@@ -46,4 +56,21 @@ body {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #DB4444; 
+}
+
+.card{
+  transition: all 0.5s ease;
+}
+.card:hover{
+  box-shadow: 2px 0px 26px 1px rgba(0,0,0,0.44);
+  -webkit-box-shadow: 2px 0px 26px 1px rgba(0,0,0,0.44);
+  -moz-box-shadow: 2px 0px 26px 1px rgba(0,0,0,0.44);
+}
+.aboutItem{
+  transition: all 0.5s ease;
+}
+.aboutItem:hover{
+  box-shadow: 2px 0px 26px 1px #DB4444;
+  -webkit-box-shadow: 2px 0px 26px 1px #DB4444;
+  -moz-box-shadow: 2px 0px 26px 1px #DB4444;
 }

@@ -1,5 +1,6 @@
+import { Fragment } from "react"
 import { product1, product2, product3, product4, product5, product6, product7, product8, star } from "../assets"
-import { Card, Intro } from "../components"
+import { Button, Card, Intro } from "../components"
 const ourProduct = [
     { id: 1, img: product1,nowPrice:120,  rate: [star,star,star,star] },
     { id: 2, img: product2,nowPrice:140,  rate: [star,star,star,star ,star]},
@@ -24,11 +25,13 @@ const OurProducts = () => {
     <ul className="flex items-center flex-wrap justify-between gap-x-7 gap-y-14 py-14">
         {ourProduct.map(item => {
             return(
-                <Card data={item}/>
+                <Fragment key={crypto.randomUUID()}>
+                  <Card data={item}/>
+                </Fragment>
             )
         })}
     </ul>
-    <a className="w-[234px] h-[56px] bg-[#DB4444] flex items-center justify-center rounded-sm  text-white text-[16px] font-semibold leading-[24px] mx-auto" href="#">View All Products</a>
+    <Button name='View All Products' link='#'/>
     </div>
   )
 }

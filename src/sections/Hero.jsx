@@ -5,6 +5,7 @@ import 'swiper/css/pagination';
 
 import { Pagination, Autoplay } from 'swiper/modules';
 import { product1, product10, product11, product12, product13, product14, product15, product16, product2, product3, product4, product5, product6, product7, product8, product9, star } from "../assets";
+import { Fragment } from "react";
 
 const productDb = [
   { id: 1, img: product1,nowPrice:120, oldPrice:160, rate: [star,star,star,star],discount:50 },
@@ -53,7 +54,7 @@ const Hero = () => {
       >
         {productDb.map(product => {
           return(
-            <SwiperSlide key={product.id}>
+            <SwiperSlide key={product.id} >
               <img src={product.img} className='' />
             </SwiperSlide>
           )
