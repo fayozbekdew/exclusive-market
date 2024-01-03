@@ -4,7 +4,8 @@ import './App.css'
 import { ErrorElement } from "./components";
 import { LanguageProvider } from "./context/LanguageContext";
 import HomeLayout from "./layout/HomeLayout";
-import { About, Contact, Error, Home, SignIn, SignUp } from "./pages";
+import { About, Basket, Contact, Error, Home, SignIn, SignUp, Wishlist } from "./pages";
+import Products from "./pages/Products";
 
 export default function App() {
   const routes = createBrowserRouter([
@@ -37,6 +38,16 @@ export default function App() {
           element: <SignIn />,
           errorElement: <Error />,
         },
+        {
+          path: "/wishlist",
+          element: <Wishlist />,
+          errorElement: <Error />,
+        },
+        {
+          path: "/basket",
+          element: <Basket />,
+          errorElement: <Error />,
+        }
       ],
       errorElement: <Error />,
     },

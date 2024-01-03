@@ -3,8 +3,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 // images
 import { product1, product10, product11, product12, product13, product14, product15, product16, product2, product3, product4, product5, product6, product7, product8, product9,star } from "../assets";
-import { Fragment } from "react";
-
+import { Fragment, useState } from "react";
+import {useFetch}  from '../hooks/useFetch'
 
 const MostSales = () => {
   const productDb = [
@@ -25,6 +25,9 @@ const MostSales = () => {
     { id: 15, img: product15, nowPrice:120, oldPrice:160, rate: [star,star],discount:37 },
     { id: 16, img: product16, nowPrice:120, oldPrice:160, rate:[star,star,star,star,star], discount:41 },
   ];
+  const [url, setUrl] = useState('https://real-time-amazon-data.p.rapidapi.com/search')
+  const {data  , error, isPending} = useFetch(url)
+  // console.log(data)
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -68,7 +71,7 @@ const MostSales = () => {
         {productDb.map( product => {
             return(
            <Fragment key={crypto.randomUUID()}>
-            <Card data={product}  discount/>
+            <Card data={product} favorite discount/>
            </Fragment>
             )
         })}

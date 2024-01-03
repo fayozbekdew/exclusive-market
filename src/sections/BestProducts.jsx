@@ -25,7 +25,7 @@ const BestProducts = () => {
         {BestProduct.map( element => {
             return(
                 <Fragment key={crypto.randomUUID()}>
-                <Card data={element}/>
+                <Card favorite data={element}/>
                 </Fragment>
             )
         })}

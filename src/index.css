@@ -74,3 +74,19 @@ body {
   -webkit-box-shadow: 2px 0px 26px 1px #DB4444;
   -moz-box-shadow: 2px 0px 26px 1px #DB4444;
 }
+.backetItem{
+  transition: all 0.5s ease;
+}
+.backetItem:hover{
+  box-shadow: 2px 0px 26px 1px rgba(0,0,0,0.44);
+  -webkit-box-shadow: 2px 0px 26px 1px rgba(0,0,0,0.44);
+  -moz-box-shadow: 2px 0px 26px 1px rgba(0,0,0,0.44);
+}
+.ButtonEl{
+  transition: all 0.5s ease;
+}
+.ButtonEl:hover{
+  box-shadow: 2px 0px 26px 1px #DB4444;
+  -webkit-box-shadow: 2px 0px 26px 1px #DB4444;
+  -moz-box-shadow: 2px 0px 26px 1px #DB4444;
+}
