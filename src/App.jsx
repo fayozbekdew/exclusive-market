@@ -15,7 +15,7 @@ export default function App() {
       children: [
         {
           index: true,
-          element: <Home />,
+          element: <Home  />,
           errorElement: <ErrorElement />,
         },
         {

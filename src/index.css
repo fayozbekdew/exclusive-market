@@ -35,6 +35,12 @@ body {
 .react-multi-carousel-dot--active button{
   background: #DB4444;
 }
+/* swipper-slide-edit */
+.swiper-pagination-bullet-active{
+  width: 30px;
+  border-radius: 10px;
+  background: #DB4444;
+} 
 
 /* SCROOL-EFECT */
 ::-webkit-scrollbar {

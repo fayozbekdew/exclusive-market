@@ -14,7 +14,7 @@ const Header = () => {
         </a>
       </span>
       <select className="bg-inherit border-none  text-white" name="select">
-        <option className="text-black" value="value1" selected>English</option>
+        <option className="text-black" value="value1" defaultChecked>English</option>
         <option className="text-black" value="value2" >
           Russian
         </option>

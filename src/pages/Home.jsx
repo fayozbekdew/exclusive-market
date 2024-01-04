@@ -1,11 +1,11 @@
 import { BestProducts, Categories, Features, Hero, OurProducts } from "../sections"
 import MostSales from "../sections/MostSales"
 
-const Home = () => {
+const Home = (  ) => {
   return (
     <>
     <Hero/>
-    <MostSales/>
+    <MostSales />
     <Categories/>
     <BestProducts/>
     <OurProducts/>
