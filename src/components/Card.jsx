@@ -1,23 +1,32 @@
 import { MdFavoriteBorder } from "react-icons/md";
-import { Link } from "react-router-dom";
-import { Basket_White } from "../assets";
+import { Basket_White, Favorite_Icon } from "../assets";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { useContext } from "react";
 import { StoreContext } from "../context/ProductReducer";
 
-const Card = ({data, discount, wishlist,favorite }) => {
+const Card = ({data, discount, wishlist,favorite,toast }) => {
   const { addToBasket, addToFavorite, removeFromFavorite } = useContext(StoreContext)
   function addBasket(){
     addToBasket(data)
+    toast.success(`${data.name.charAt().toUpperCase() + data.name.slice(1)} added to bag`,{
+      icon: '🛒',
+      className: 'toastMessage'
+    })
   }
   function addFavorite(){
     addToFavorite(data)
+    toast.success(` ${data.name.charAt().toUpperCase() + data.name.slice(1)} added to favorite`, {
+      icon: '⭐',
+      className: 'toastMessage'
+    })
+
   }
   function removeFavorite(){
     removeFromFavorite(data)
   }
   return (
     <div key={crypto.randomUUID()} className={` w-[270px] h-[350px]   flex flex-col  group card `}>
+      
       <div className="w-[270px] h-[250px] bg-[#F5F5F5] flex items-center justify-center relative">
         <img src={data.img} alt="product img" className="transition-all group-hover:scale-[1.1] h-[152px] w-[172px]" />
         <span className="flex flex-col items-center gap-y-1 absolute right-3 top-2">

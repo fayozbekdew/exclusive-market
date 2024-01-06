@@ -5,6 +5,10 @@ import "react-multi-carousel/lib/styles.css";
 import { product1, product10, product11, product12, product13, product14, product15, product16, product2, product3, product4, product5, product6, product7, product8, product9,star } from "../assets";
 import { Fragment, useState } from "react";
 import {useFetch}  from '../hooks/useFetch'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export const productDb = [
   { name:'djkksj', id: 1, img: product1,price:120, oldPrice:160, rate: [star,star,star,star],discount:50 },
@@ -49,6 +53,7 @@ const MostSales = () => {
   };
   return (
     <div className="myContainer pt-[40px] flex flex-col border-b-2 pb-14 ">
+      <ToastContainer autoClose={1000} pauseOnHover={false} theme="light" />
       <Intro name={"Today's"} />
       <div className="pt-[24px] flex items-center">
         <h2 className="text-[36px] font-semibold leading-[48px] text-black mr-[87px]">
@@ -71,7 +76,7 @@ const MostSales = () => {
         {productDb.map( product => {
             return(
            <Fragment key={crypto.randomUUID()}>
-            <Card data={product} favorite discount/>
+            <Card toast={toast} data={product} favorite discount/>
            </Fragment>
             )
         })}

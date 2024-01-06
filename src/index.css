@@ -96,3 +96,14 @@ body {
   -webkit-box-shadow: 2px 0px 26px 1px #DB4444;
   -moz-box-shadow: 2px 0px 26px 1px #DB4444;
 }
+.toastMessage{
+  background: #DB4444;
+  color: #fff;
+  font-size: 20px;
+}
+.Toastify__progress-bar--success{
+  background: lightblue;
+}
+.Toastify__close-button > svg {
+  fill: wheat;
+}

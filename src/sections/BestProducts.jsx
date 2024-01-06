@@ -2,6 +2,8 @@ import { Fragment } from "react"
 import { Link } from "react-router-dom"
 import { musicInstrument, product1, product2, product3, product4, star } from "../assets"
 import { Card, Intro } from "../components"
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const BestProduct = [
     { id: 1, img: product1,nowPrice:120, oldPrice:160, rate: [star,star,star,star],discount:50 },
     { id: 2, img: product2,nowPrice:140, oldPrice:180, rate: [star,star,star,star ,star],discount:40},
@@ -12,6 +14,7 @@ const BestProduct = [
 const BestProducts = () => {
   return (
     <div className="myContainer mt-[70px]">
+        <ToastContainer autoClose={1000} pauseOnHover={false} theme="light" />
     <Intro name={'This Month'}/>
     <div className="flex items-center justify-between mt-5">
     <h2 className="text-[36px] font-semibold leading-[48px] text-black mr-[87px]">
@@ -25,7 +28,7 @@ const BestProducts = () => {
         {BestProduct.map( element => {
             return(
                 <Fragment key={crypto.randomUUID()}>
-                <Card favorite data={element}/>
+                <Card toast={toast} favorite data={element}/>
                 </Fragment>
             )
         })}

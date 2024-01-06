@@ -41,7 +41,7 @@ const Navbar = () => {
 
   return (
     <div className="border-b-2">
-      <div className="myContainer flex items-center justify-between h-[60px]  ">
+      <div  className="myContainer  flex items-center justify-between h-[60px]  ">
         <Link
           onClick={() => {
             setFavorite("");
