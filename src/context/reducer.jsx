@@ -1,7 +1,9 @@
 export const initialVal = {
   total: 0,
   products: [],
-  favoritList:[],
+  favoritList: [],
+  searchList: [],
+  searchText: "",
 };
 function storeReducer(state, action) {
   switch (action.type) {
@@ -29,6 +31,16 @@ function storeReducer(state, action) {
       return {
         ...state,
         favoritList: action.payload,
+      };
+    case "add_search_list":
+      return {
+        ...state,
+        searchList: action.payload,
+      };
+    case "add_search_text":
+      return {
+        ...state,
+        searchText: action.payload,
       };
     default:
       throw Error("Cannot match case in reducer");

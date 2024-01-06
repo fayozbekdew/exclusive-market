@@ -3,19 +3,34 @@ import { Fragment } from "react"
 import { Empty_cart, product1, product2, product3, product4, star } from "../assets"
 import { Button, Card, Intro } from "../components"
 import { StoreContext } from "../context/ProductReducer"
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
-const wishlistData  = [
-    { id: 1, img: product1,price:120, oldPrice:160, rate: [star,star,star,star],discount:50 },
-    { id: 2, img: product2,price:140, oldPrice:180, rate: [star,star,star,star ,star],discount:40},
-    { id: 3, img: product3,price:120, oldPrice:160, rate: [star,star,star],discount:45 },
-    { id: 4, img: product4, price:120, oldPrice:160, rate:[star,star,star,star], discount:30 }
-]
 function Wishlist() {
+    const responsive = {
+        superLargeDesktop: {
+          // the naming can be any, depends on you.
+          breakpoint: { max: 4000, min: 3000 },
+          items: 5,
+        },
+        desktop: {
+          breakpoint: { max: 3000, min: 1024 },
+          items: 5,
+        },
+        tablet: {
+          breakpoint: { max: 1024, min: 464 },
+          items: 4,
+        },
+        mobile: {
+          breakpoint: { max: 464, min: 0 },
+          items: 1,
+        },
+      };
     //context
-    const {favoritList,addToBasket} = useContext(StoreContext)
+    const {favoritList, searchList,addToBasket} = useContext(StoreContext)
+    console.log(searchList)
     function allAddBasket(){
         favoritList.forEach(item => addToBasket(item))
-        
     }
   return (
     <div className="myContainer py-20">
@@ -38,22 +53,50 @@ function Wishlist() {
             )
         })}
     </ul>
+    
+    </> 
+    : 
+    <div className="mt-[-80px] flex items-center justify-center flex-col mb-10">
+        <img src={Empty_cart} className='w-[500px] h-[500px]' alt="empty cart img" />
+        <Button name='Back to shopping' link='/'/>
+    </div>
+    }
     <Intro name='Just For You'/>
-    <ul className="flex items-center gap-x-7 justify-center mt-14 mb-20">
-        {wishlistData.map(item  => {
+    {searchList.length == 0 
+    ? 
+    <div className="flex items-center justify-center">
+    <h2 className="text-[60px]">You have not searched for any products</h2>
+    </div>
+    : searchList.length <= 4 
+    ? 
+    <ul className="flex items-center gap-x-7 justify-start mt-14 mb-20">
+        {searchList.map(item  => {
             return(
                 <Fragment key={crypto.randomUUID()}>
                     <Card data={item}/>
                 </Fragment>
             )
         })}
-    </ul>
-    </> 
+    </ul> 
     : 
-    <div className="mt-[-80px] flex items-center justify-center flex-col">
-        <img src={Empty_cart} className='w-[500px] h-[500px]' alt="empty cart img" />
-        <Button name='Back to shopping' link='/'/>
-    </div>
+     <Carousel 
+     className="mt-[31px] mb-16 flex-col"
+     responsive={responsive}
+     arrows={false}
+   //   customButtonGroup={<ButtonGroup />}
+     infinite={true}
+     autoPlay={true}
+     autoPlaySpeed={3000}
+     keyBoardControl={true}
+     >
+       {searchList.map( product => {
+           return(
+          <Fragment key={crypto.randomUUID()}>
+           <Card data={product} favorite discount/>
+          </Fragment>
+           )
+       })}
+     </Carousel>
     }
     </div>
   )

@@ -6,6 +6,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import HomeLayout from "./layout/HomeLayout";
 import { About, Basket, Contact, Error, Home, SignIn, SignUp, Wishlist } from "./pages";
 import Products from "./pages/Products";
+import { Search } from "./sections";
 
 export default function App() {
   const routes = createBrowserRouter([
@@ -46,6 +47,11 @@ export default function App() {
         {
           path: "/basket",
           element: <Basket />,
+          errorElement: <Error />,
+        },
+        {
+          path: "/search",
+          element: <Search />,
           errorElement: <Error />,
         }
       ],

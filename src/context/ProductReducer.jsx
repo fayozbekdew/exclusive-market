@@ -42,6 +42,22 @@ function StoreProvider({ children }) {
       payload: updateFavorite,
     });
   };
+  const addSearchList = (product) => {
+    const updateSearchList = state.searchList;
+      updateSearchList.push(product);
+        dispatch({
+          type: "add_search_list",
+          payload: updateSearchList,
+        });
+  };
+  const addSearchText = (text) => {
+    let updateSearchText = state.searchText;
+      updateSearchText = text;
+        dispatch({
+          type: "add_search_text",
+          payload: updateSearchText,
+        });
+  };
   const updatePrice = (products) => {
   let total = 0;
   products.forEach(product => {
@@ -57,10 +73,14 @@ function StoreProvider({ children }) {
     total: state.total,
     products: state.products,
     favoritList:state.favoritList,
+    searchList: state.searchList,
+    searchText: state.searchText,
     addToBasket,
     removeFromBasket,
     addToFavorite,
     removeFromFavorite,
+    addSearchList,
+    addSearchText,
   }
   return (
     <StoreContext.Provider value={value}>

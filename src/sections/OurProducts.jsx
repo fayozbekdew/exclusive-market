@@ -1,16 +1,6 @@
 import { Fragment } from "react"
-import { product1, product2, product3, product4, product5, product6, product7, product8, star } from "../assets"
 import { Button, Card, Intro } from "../components"
-const ourProduct = [
-    { id: 1, img: product1,nowPrice:120,  rate: [star,star,star,star] },
-    { id: 2, img: product2,nowPrice:140,  rate: [star,star,star,star ,star]},
-    { id: 3, img: product3,nowPrice:120,  rate: [star,star,star] },
-    { id: 4, img: product4, nowPrice:120,  rate:[star,star,star,star], },
-    { id: 5, img: product5,nowPrice:120,  rate:[star,star,star,star, star], },
-    { id: 6, img: product6,nowPrice:120,  rate: [star,star,star]},
-    { id: 7, img: product7, nowPrice:120,  rate: [star,star,star, star,star] },
-    { id: 8, img: product8,nowPrice:120,  rate: [star,star,star,star]},
-]
+import { productDb } from "./MostSales"
 
 
 const OurProducts = () => {
@@ -23,7 +13,7 @@ const OurProducts = () => {
       </h2>
     </div>
     <ul className="flex items-center flex-wrap justify-between gap-x-7 gap-y-14 py-14">
-        {ourProduct.map(item => {
+        {productDb.map(item => {
             return(
                 <Fragment key={crypto.randomUUID()}>
                   <Card favorite data={item}/>
@@ -31,7 +21,7 @@ const OurProducts = () => {
             )
         })}
     </ul>
-    <Button name='View All Products' link='#'/>
+    <Button center name='View All Products' link='#'/>
     </div>
   )
 }

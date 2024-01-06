@@ -1,8 +1,10 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { CiSearch } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { productDb } from "./MostSales";
 import {
+  Account_icon,
   Basket_Icon,
   Basket_Icon_Active,
   Favorite_Icon,
@@ -17,6 +19,20 @@ const NavDb = [
   { name: "SignUp", link: "/signup", id: 49029032 },
 ];
 const Navbar = () => {
+  const navigate = useNavigate()
+  const {addSearchList, addSearchText} = useContext(StoreContext)
+  let [input, setInput] = useState('')
+  function submitFn(e){
+  e.preventDefault()
+  addSearchText(input)
+  productDb.forEach(product => {
+      if(product.name.slice(0, 2) === input.slice(0,2)){
+       addSearchList(product)
+      }
+  })
+  setInput('')
+  navigate('/search')
+}
   //context
   const { products,favoritList } = useContext(StoreContext)
   //element
@@ -57,11 +73,17 @@ const Navbar = () => {
         </ul>
         <div className="flex items-center gap-x-[20px]">
           <small className="relative flex items-center">
+            <form onSubmit={submitFn} >
             <input
+              onChange={(e) => {
+                setInput(e.target.value)
+              }}
+              value={input}
               className=" w-[243px] h-[30px] outline-none pl-4 bg-slate-100 rounded-md"
               type="text"
               placeholder="What are you looking for?"
             />
+            </form>
             <CiSearch className="absolute right-4 w-[20px] h-[20px]" />
           </small>
           <Link
@@ -99,6 +121,9 @@ const Navbar = () => {
             {products.length != 0 ? <span className="absolute top-[-5px] right-[-10px] text-white text-[12px] bg-[#DB4444] w-4 h-4 rounded-full flex items-center justify-center">
               {products.length}
             </span> : ''}
+          </Link>
+          <Link to='/' className="flex items-center justify-center bg-[#DB4444] rounded-full w-8 h-8">
+          <img src={Account_icon} className='w-5 h-5' alt="" />
           </Link>
         </div>
       </div>

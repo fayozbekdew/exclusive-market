@@ -10,19 +10,20 @@ function Basket() {
   //context
   const { total, products, removeFromBasket } = useContext(StoreContext);
   //element
-  const [hover, setHover] = useState(false);
-  let num = 0;
-  const [quantity, setQuantity] = useState(num);
+  let [quantity, setQuantity] = useState(1);
+  let [ subtotal, setSubtotal ] = useState(0)
 
   function handleRemove(data){
-  console.log(data)
   removeFromBasket(data)
   }
-  function plusFn() {
-    ++num;
-    // console.log(num);
+  function plusFn(element,id) {
+    console.log(id);
+      if(element.id === id){
+        setQuantity(++quantity)
+      } 
   }
   function minusFn() {
+    setQuantity(--quantity)
     // console.log(111);
   }
   // console.log(num)
@@ -34,8 +35,9 @@ function Basket() {
         <p className="font-medium text-[16px]">Quantity</p>
         <p className="font-medium text-[16px]">Subtotal</p>
       </div>
-      <ul>
+      <ul className="flex flex-col gap-y-4">
         {products.map((product, i) => {
+          // console.log(product);
           return (
             <li className="group flex items-center justify-between px-10 py-6 border-[4px] border-gray-200 rounded-md backetItem">
               <span className="flex items-center gap-x-5">
@@ -54,7 +56,7 @@ function Basket() {
               <span className="flex items-center justify-center gap-x-4 w-20 h-11 border border-gray-300 rounded-md">
                 <p>{quantity}</p>
                 <span className="flex items-center flex-col gap-y-1">
-                  <button onClick={plusFn}>
+                  <button onClick={() => plusFn( product, product.id)}>
                     <IoIosArrowUp />
                   </button>
                   <button onClick={minusFn}>
@@ -62,7 +64,7 @@ function Basket() {
                   </button>
                 </span>
               </span>
-              <p>${product.price}</p>
+              <p>${ product.price * quantity}</p>
             </li>
           );
         })}
