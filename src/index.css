@@ -44,7 +44,7 @@ body {
 
 /* SCROOL-EFECT */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px ;
 }
 
 /* Track */
@@ -106,4 +106,11 @@ body {
 }
 .Toastify__close-button > svg {
   fill: wheat;
+}
+.sticky-header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+  z-index: 998;
+  -webkit-backface-visibility: hidden;
 }

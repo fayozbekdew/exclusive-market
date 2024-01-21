@@ -1,9 +1,14 @@
+//react
 import { useState } from "react";
-import { close_btn } from "../assets";
-import { Button } from "../components";
-import { IoIosArrowUp } from "react-icons/io";
-import { IoIosArrowDown } from "react-icons/io";
 import { useContext } from "react";
+//local-img
+import { close_btn } from "../assets";
+//react-icons
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
+//component
+import { Button } from "../components";
+//reducer
 import { StoreContext } from "../context/ProductReducer";
 
 function Basket() {
@@ -11,22 +16,16 @@ function Basket() {
   const { total, products, removeFromBasket } = useContext(StoreContext);
   //element
   let [quantity, setQuantity] = useState(1);
-  let [ subtotal, setSubtotal ] = useState(0)
-
-  function handleRemove(data){
-  removeFromBasket(data)
+  //function
+  function handleRemove(data) {
+    removeFromBasket(data);
   }
-  function plusFn(element,id) {
-    console.log(id);
-      if(element.id === id){
-        setQuantity(++quantity)
-      } 
+  function plusFn(element, id) {
+    setQuantity(++quantity);
   }
   function minusFn() {
-    setQuantity(--quantity)
-    // console.log(111);
+    setQuantity(--quantity);
   }
-  // console.log(num)
   return (
     <div className="myContainer py-32">
       <div className=" flex items-center justify-between px-10 py-6 border-[4px] border-gray-200 rounded-md mb-10">
@@ -36,16 +35,19 @@ function Basket() {
         <p className="font-medium text-[16px]">Subtotal</p>
       </div>
       <ul className="flex flex-col gap-y-4">
-        {products.map((product, i) => {
+        {products.map((product) => {
           // console.log(product);
           return (
-            <li className="group flex items-center justify-between px-10 py-6 border-[4px] border-gray-200 rounded-md backetItem">
+            <li
+              key={crypto.randomUUID()}
+              className="group flex items-center justify-between px-10 py-6 border-[4px] border-gray-200 rounded-md backetItem"
+            >
               <span className="flex items-center gap-x-5">
                 <small className="relative">
                   <img src={product.img} className="w-12 h-12" />
                   <small
                     onClick={() => handleRemove(product)}
-                    className="group-hover:flex hidden items-center justify-center w-5 h-5 bg-[#DB4444] rounded-full absolute top-[-7px] left-[-10px]"
+                    className="group-hover:flex cursor-pointer hidden items-center justify-center w-5 h-5 bg-[#DB4444] rounded-full absolute top-[-7px] left-[-10px]"
                   >
                     <img src={close_btn} className="w-2 h-2" alt="close btn" />
                   </small>
@@ -56,7 +58,7 @@ function Basket() {
               <span className="flex items-center justify-center gap-x-4 w-20 h-11 border border-gray-300 rounded-md">
                 <p>{quantity}</p>
                 <span className="flex items-center flex-col gap-y-1">
-                  <button onClick={() => plusFn( product, product.id)}>
+                  <button onClick={() => plusFn(product, product.id)}>
                     <IoIosArrowUp />
                   </button>
                   <button onClick={minusFn}>
@@ -64,7 +66,7 @@ function Basket() {
                   </button>
                 </span>
               </span>
-              <p>${ product.price * quantity}</p>
+              <p>${product.price * quantity}</p>
             </li>
           );
         })}

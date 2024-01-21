@@ -9,7 +9,6 @@ export const LanguageProvider = ({ children }) => {
   const [language, setLanguage] = useState(
     localStorage.getItem("i18nextLng") || "en"
   );
-
   useEffect(() => {
     const storedLang = localStorage.getItem("i18nextLng");
     if (storedLang) {
@@ -37,3 +36,5 @@ export const useLanguage = () => {
   }
   return context;
 };
+
+

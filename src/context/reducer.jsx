@@ -1,8 +1,14 @@
 export const initialVal = {
   total: 0,
-  products: [],
-  favoritList: [],
-  searchList: [],
+  products: localStorage.getItem("basket")
+    ? JSON.parse(localStorage.getItem("basket"))
+    : [],
+  favoritList: localStorage.getItem("favorite")
+    ? JSON.parse(localStorage.getItem("favorite"))
+    : [],
+  searchList: localStorage.getItem("search")
+    ? JSON.parse(localStorage.getItem("search"))
+    : [],
   searchText: "",
 };
 function storeReducer(state, action) {
@@ -41,6 +47,11 @@ function storeReducer(state, action) {
       return {
         ...state,
         searchText: action.payload,
+      };
+    case "clear_search_elements":
+      return {
+        ...state,
+        searchList: action.payload,
       };
     default:
       throw Error("Cannot match case in reducer");

@@ -1,12 +1,15 @@
+//?react icons
 import { FaAngleRight } from "react-icons/fa";
+//?swiper for big slider
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-
 import { Pagination, Autoplay } from "swiper/modules";
+//?local img
 import { Hero_Slider_1, Hero_Slider_2, Hero_Slider_3 } from "../assets";
+//?rrd
 import { Link } from "react-router-dom";
-
+//?local-db
 const SliderDb = [
   {
     name: "NAMPHONE",
@@ -15,8 +18,8 @@ const SliderDb = [
     img: Hero_Slider_1,
     link: "#",
     bg: "#CAF6F9",
-    buttonColor:'#DB4444',
-    id:88283
+    buttonColor: "#DB4444",
+    id: 88283,
   },
   {
     name: "PLAYBOX",
@@ -24,9 +27,9 @@ const SliderDb = [
     rightText: "CONSOLE X245-HD",
     img: Hero_Slider_2,
     link: "#",
-    buttonColor:'#DB4444',
+    buttonColor: "#DB4444",
     bg: "#319DFF",
-    id:82398298
+    id: 82398298,
   },
   {
     name: "GADGETS",
@@ -34,21 +37,47 @@ const SliderDb = [
     rightText: "KEEP YOUR SHAPE WITH ALL",
     img: Hero_Slider_3,
     link: "#",
-    buttonColor:'#2CDAE6',
+    buttonColor: "#2CDAE6",
     bg: "#FFCBD9",
-    id:90099232
+    id: 90099232,
   },
 ];
 
 const Hero = () => {
   return (
     <div id="hero" className="myContainer pt-6 flex gap-x-5 ">
-      <section className="w-full max-w-[180px] h-[344px] border-r-2 border-gray-500 flex flex-col gap-y-[12px]  ">
-        <li className="flex items-center justify-between w-full max-w-[157px]">
-          <a href="">Woman’s Fashion</a> <FaAngleRight />
+      <section className="w-full max-w-[180px] overflow-y-hidden h-[344px] border-r-2 border-gray-500 flex flex-col gap-y-[12px]  ">
+        <li className="flex group transition-all duration-1000 flex-col items-end  w-full max-w-[157px]">
+          <div className="flex items-center w-full justify-between">
+            <a href="">Woman’s Fashion</a> <FaAngleRight />
+          </div>
+          <ul className="hidden group-hover:flex flex-col border rounded-md ">
+            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
+              acjshdsd
+            </Link>
+            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
+              acjshdsd
+            </Link>
+            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
+              acjshdsd
+            </Link>
+          </ul>
         </li>
-        <li className="flex items-center justify-between w-full max-w-[157px]">
-          <a href="">Men’s Fashion</a> <FaAngleRight />
+        <li className="flex group transition-all duration-1000 flex-col items-end  w-full max-w-[157px]">
+          <div className="flex items-center w-full justify-between">
+            <a href="">Men ’s Fashion</a> <FaAngleRight />
+          </div>
+          <ul className="hidden group-hover:flex flex-col border rounded-md ">
+            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
+              acjshdsd
+            </Link>
+            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
+              acjshdsd
+            </Link>
+            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
+              acjshdsd
+            </Link>
+          </ul>
         </li>
         <li className="flex items-center justify-between w-full max-w-[157px]">
           <a href="">Electronics</a> <FaAngleRight />
@@ -86,21 +115,32 @@ const Hero = () => {
           className="mySwiper"
         >
           {SliderDb.map((product) => {
-            const { bg,buttonColor, name, leftText, rightText, img,id, link} = product
+            const {
+              bg,
+              buttonColor,
+              name,
+              leftText,
+              rightText,
+              img,
+              id,
+              link,
+            } = product;
             return (
               <SwiperSlide
-                style={{background: `${bg}`}}
+                style={{ background: `${bg}` }}
                 className={` flex heroSlider items-center pb-11 justify-around`}
-                key={id}
+                key={crypto.randomUUID()}
               >
                 <div>
-                  <h1 className={`w-full max-w-[500px] text-[36px] font-light leading-normal`}>
+                  <h1
+                    className={`w-full max-w-[500px] text-[36px] font-light leading-normal`}
+                  >
                     {leftText}
                     <p className="font-bold">{name}</p>
                     {rightText}
                   </h1>
                   <Link
-                    style={{background: `${buttonColor}`}}
+                    style={{ background: `${buttonColor}` }}
                     to={link}
                     className="text-[16px] font-medium text-white flex items-center justify-center w-full max-w-[136px] h-12 mt-10 rounded-3xl"
                   >

@@ -1,5 +1,7 @@
-import { Outlet } from "react-router-dom" 
-import { Footer, Header, Navbar } from "../sections"
+//rrd
+import { Outlet } from "react-router-dom";
+//sections
+import { Footer, Header, Navbar } from "../sections";
 const HomeLayout = () => {
   return (
     <>
@@ -10,7 +12,7 @@ const HomeLayout = () => {
       </main>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export default HomeLayout
+export default HomeLayout;
