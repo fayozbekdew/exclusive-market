@@ -95,7 +95,7 @@ const Card = ({ data, discount, wishlist, favorite, toast }) => {
           </p>
         </small>
         <div className="flex items-center">
-          {rate.map((star) => {
+          {rate && rate.map((star) => {
             return (
               <div key={crypto.randomUUID()}>
                 <img src={star} className="h-5 w-5" alt="" />

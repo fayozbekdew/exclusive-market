@@ -33,7 +33,7 @@ import "react-toastify/dist/ReactToastify.css";
 //?local db
 export const productDb = [
   {
-    name: "djkksj",
+    name: "O'yin pulti",
     id: 1,
     img: product1,
     price: 120,
@@ -42,7 +42,7 @@ export const productDb = [
     discount: 50,
   },
   {
-    name: "jshjd",
+    name: "RGB klaviatura",
     id: 2,
     img: product2,
     price: 140,
@@ -51,7 +51,7 @@ export const productDb = [
     discount: 40,
   },
   {
-    name: "lajsdja",
+    name: "Monitor",
     id: 3,
     img: product3,
     price: 120,
@@ -60,7 +60,7 @@ export const productDb = [
     discount: 45,
   },
   {
-    name: "dsksc",
+    name: "Stul",
     id: 4,
     img: product4,
     price: 120,
@@ -69,7 +69,7 @@ export const productDb = [
     discount: 30,
   },
   {
-    name: "djdjs",
+    name: "Ayollar sumkasi",
     id: 5,
     img: product5,
     price: 120,
@@ -78,7 +78,7 @@ export const productDb = [
     discount: 26,
   },
   {
-    name: "dsjdq",
+    name: "Qizlar kurtkasi",
     id: 6,
     img: product6,
     price: 120,
@@ -86,7 +86,7 @@ export const productDb = [
     rate: [star, star, star],
   },
   {
-    name: "llasjw",
+    name: "Karnay",
     id: 7,
     img: product7,
     price: 120,
@@ -95,7 +95,7 @@ export const productDb = [
     discount: 47,
   },
   {
-    name: "djkksjqq",
+    name: "Kitob javoni",
     id: 8,
     img: product8,
     price: 120,
@@ -104,7 +104,7 @@ export const productDb = [
     discount: 32,
   },
   {
-    name: "iiasds",
+    name: "Cesar Choco",
     id: 9,
     img: product9,
     price: 120,
@@ -112,7 +112,7 @@ export const productDb = [
     rate: [star, star, star, star],
   },
   {
-    name: "oasdns",
+    name: "Canon Camera",
     id: 10,
     img: product10,
     price: 120,
@@ -121,7 +121,7 @@ export const productDb = [
     discount: 22,
   },
   {
-    name: "djjdjs",
+    name: "Lonovo 1908",
     id: 11,
     img: product11,
     price: 120,
@@ -129,7 +129,7 @@ export const productDb = [
     rate: [star, star, star, star],
   },
   {
-    name: "ytdsv",
+    name: "Erkaklar kiyimi",
     id: 12,
     img: product12,
     price: 120,
@@ -138,7 +138,7 @@ export const productDb = [
     discount: 42,
   },
   {
-    name: "ajewu",
+    name: "DiDiT o'yinchoq",
     id: 13,
     img: product13,
     price: 120,
@@ -147,7 +147,7 @@ export const productDb = [
     discount: 53,
   },
   {
-    name: "diiidsd",
+    name: "Butsa",
     id: 14,
     img: product14,
     price: 120,
@@ -155,7 +155,7 @@ export const productDb = [
     rate: [star, star, star],
   },
   {
-    name: "nshhss",
+    name: "Fentech O'yin joystik",
     id: 15,
     img: product15,
     price: 120,
@@ -164,7 +164,7 @@ export const productDb = [
     discount: 37,
   },
   {
-    name: "djsjds",
+    name: "Erkaklar kiyimi",
     id: 16,
     img: product16,
     price: 120,
@@ -172,13 +172,88 @@ export const productDb = [
     rate: [star, star, star, star, star],
     discount: 41,
   },
+  {
+    id: 17,
+
+    name: "Carrom Board",
+    price: 29.99,
+    description: "Classic wooden carrom board for family fun",
+    oldPrice: 160,
+    category: "Board Games",
+
+    img: "https://example.com/carrom_board.jpg",
+  },
+  {
+    id: 18,
+
+    name: "Settlers of Catan",
+
+    price: 39.99,
+    oldPrice: 160,
+    description: "Popular strategy board game for 3-4 players",
+
+    category: "Board Games",
+
+    img: "https://example.com/catan_game.jpg",
+  },
+  {
+    id: 19,
+
+    name: "Pandemic",
+
+    price: 34.99,
+    oldPrice: 160,
+    description: "Cooperative board game to save the world from diseases",
+
+    category: "Board Games",
+
+    img: "https://example.com/pandemic_game.jpg",
+  },
+
+  {
+    id: 20,
+
+    name: "Ticket to Ride",
+
+    price: 44.99,
+    oldPrice: 160,
+    description: "Train adventure board game for 2-5 players",
+    category: "Board Games",
+
+    img: "https://example.com/ticket_to_ride.jpg",
+  },
+  {
+    id: 21,
+
+    name: "Codenames",
+
+    price: 19.99,
+    oldPrice: 160,
+    description: "Word association party game for groups",
+
+    category: "Party Games",
+
+    img: "https://example.com/codenames_game.jpg",
+  },
+
+  {
+    id:22,
+    name: "Jenga",
+    oldPrice: 160,
+    price: 12.99,
+    description: "Classic stacking block game for all ages",
+
+    category: "Family Games",
+
+    img: "https://example.com/jenga_game.jpg",
+  },
 ];
 const MostSales = () => {
   const [url, setUrl] = useState(
     "https://real-time-amazon-data.p.rapidapi.com/search"
   );
   const { data, error, isPending } = useFetch(url);
-//?responsive for carousel
+  //?responsive for carousel
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

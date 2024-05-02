@@ -71,14 +71,6 @@ function Basket() {
           );
         })}
       </ul>
-      {/* <div className="flex items-center justify-between mt-6">
-        <button className="flex items-center justify-center w-full max-w-[218px] h-[56px] border-[2px] border-gray-500 rounded-md">
-          Return To Shop
-        </button>
-        <button className="flex items-center justify-center w-full max-w-[218px] h-[56px] border-[2px] border-gray-500 rounded-md">
-          Update Cart
-        </button>
-      </div> */}
       <div className="w-full max-w-[450px] ml-auto mt-20 py-8 px-6 border-[3px] border-gray-400 rounded-md">
         <h4 className="text-[20px] font-medium mb-6">Cart Total</h4>
         <ul className=" flex items-center flex-col gap-y-4 ">
