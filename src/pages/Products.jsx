@@ -1,19 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { Categories } from "../sections"
 
-function Products() {
+const Product = () => {
   return (
     <div className="myContainer">
-      <span className="flex items-center gap-x-[4px] my-20">
-        <Link className="text-[14px] text-gray-500" to="/">
-          Home
-        </Link>
-        /
-        <Link className="font-semibold" to="/contact">
-          Contact
-        </Link>
-      </span>
+      <p className="text-center text-[30px] my-6">Latest product</p>
+      <hr className="mb-0" />
+      <Categories/>
     </div>
-  );
+  )
 }
 
-export default Products;
+export default Product

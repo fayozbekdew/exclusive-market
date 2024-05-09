@@ -9,10 +9,6 @@ const useFetch = (url) => {
     const getData = async () => {
       const options = {
         method: "GET",
-        headers: {
-          'X-RapidAPI-Key': '1fa1b46905msh5af045c00f0968fp1d7b11jsndf3e67d2d71a',
-          'X-RapidAPI-Host': 'real-time-amazon-data.p.rapidapi.com'
-        }
       };
       setIsPending(true);
       try {

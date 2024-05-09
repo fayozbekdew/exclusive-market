@@ -3,256 +3,26 @@ import { Button, Card, Intro } from "../components";
 //?react multi carousel for small carousel effect
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-//? images
-import {
-  product1,
-  product10,
-  product11,
-  product12,
-  product13,
-  product14,
-  product15,
-  product16,
-  product2,
-  product3,
-  product4,
-  product5,
-  product6,
-  product7,
-  product8,
-  product9,
-  star,
-} from "../assets";
 //?react
-import { Fragment, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 //?custom hook
 import { useFetch } from "../hooks/useFetch";
 //?toastify for message
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//?local db
-export const productDb = [
-  {
-    name: "O'yin pulti",
-    id: 1,
-    img: product1,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star],
-    discount: 50,
-  },
-  {
-    name: "RGB klaviatura",
-    id: 2,
-    img: product2,
-    price: 140,
-    oldPrice: 180,
-    rate: [star, star, star, star, star],
-    discount: 40,
-  },
-  {
-    name: "Monitor",
-    id: 3,
-    img: product3,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star],
-    discount: 45,
-  },
-  {
-    name: "Stul",
-    id: 4,
-    img: product4,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star],
-    discount: 30,
-  },
-  {
-    name: "Ayollar sumkasi",
-    id: 5,
-    img: product5,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star, star],
-    discount: 26,
-  },
-  {
-    name: "Qizlar kurtkasi",
-    id: 6,
-    img: product6,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star],
-  },
-  {
-    name: "Karnay",
-    id: 7,
-    img: product7,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star, star],
-    discount: 47,
-  },
-  {
-    name: "Kitob javoni",
-    id: 8,
-    img: product8,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star],
-    discount: 32,
-  },
-  {
-    name: "Cesar Choco",
-    id: 9,
-    img: product9,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star],
-  },
-  {
-    name: "Canon Camera",
-    id: 10,
-    img: product10,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star, star],
-    discount: 22,
-  },
-  {
-    name: "Lonovo 1908",
-    id: 11,
-    img: product11,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star],
-  },
-  {
-    name: "Erkaklar kiyimi",
-    id: 12,
-    img: product12,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star, star],
-    discount: 42,
-  },
-  {
-    name: "DiDiT o'yinchoq",
-    id: 13,
-    img: product13,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star],
-    discount: 53,
-  },
-  {
-    name: "Butsa",
-    id: 14,
-    img: product14,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star],
-  },
-  {
-    name: "Fentech O'yin joystik",
-    id: 15,
-    img: product15,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star],
-    discount: 37,
-  },
-  {
-    name: "Erkaklar kiyimi",
-    id: 16,
-    img: product16,
-    price: 120,
-    oldPrice: 160,
-    rate: [star, star, star, star, star],
-    discount: 41,
-  },
-  {
-    id: 17,
-
-    name: "Carrom Board",
-    price: 29.99,
-    description: "Classic wooden carrom board for family fun",
-    oldPrice: 160,
-    category: "Board Games",
-
-    img: "https://example.com/carrom_board.jpg",
-  },
-  {
-    id: 18,
-
-    name: "Settlers of Catan",
-
-    price: 39.99,
-    oldPrice: 160,
-    description: "Popular strategy board game for 3-4 players",
-
-    category: "Board Games",
-
-    img: "https://example.com/catan_game.jpg",
-  },
-  {
-    id: 19,
-
-    name: "Pandemic",
-
-    price: 34.99,
-    oldPrice: 160,
-    description: "Cooperative board game to save the world from diseases",
-
-    category: "Board Games",
-
-    img: "https://example.com/pandemic_game.jpg",
-  },
-
-  {
-    id: 20,
-
-    name: "Ticket to Ride",
-
-    price: 44.99,
-    oldPrice: 160,
-    description: "Train adventure board game for 2-5 players",
-    category: "Board Games",
-
-    img: "https://example.com/ticket_to_ride.jpg",
-  },
-  {
-    id: 21,
-
-    name: "Codenames",
-
-    price: 19.99,
-    oldPrice: 160,
-    description: "Word association party game for groups",
-
-    category: "Party Games",
-
-    img: "https://example.com/codenames_game.jpg",
-  },
-
-  {
-    id:22,
-    name: "Jenga",
-    oldPrice: 160,
-    price: 12.99,
-    description: "Classic stacking block game for all ages",
-
-    category: "Family Games",
-
-    img: "https://example.com/jenga_game.jpg",
-  },
-];
 const MostSales = () => {
-  const [url, setUrl] = useState(
-    "https://real-time-amazon-data.p.rapidapi.com/search"
-  );
-  const { data, error, isPending } = useFetch(url);
+
+  // const [url, setUrl] = useState(
+  //   "https://fakestoreapi.com/products/"
+  // );
+  // const { data, error, isPending } = useFetch(url);
+  // console.log(data)
+  const [data, setData ] = useState([])
+useEffect(() => {
+  fetch('https://fakestoreapi.com/products/')
+            .then(res=>res.json())
+            .then(s=> setData(s))
+}, [])
   //?responsive for carousel
   const responsive = {
     superLargeDesktop: {
@@ -295,7 +65,7 @@ const MostSales = () => {
         autoPlaySpeed={3000}
         keyBoardControl={true}
       >
-        {productDb.map((product) => {
+        {data.map((product) => {
           return (
             <Fragment key={crypto.randomUUID()}>
               <Card toast={toast} data={product} favorite discount />
@@ -303,7 +73,7 @@ const MostSales = () => {
           );
         })}
       </Carousel>
-      <Button center name="View All Products" link="#" />
+      <Button center name="View All Products" link="/product" />
     </div>
   );
 };

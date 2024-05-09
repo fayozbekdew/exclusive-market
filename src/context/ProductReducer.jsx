@@ -8,8 +8,7 @@ export const StoreContext = createContext();
 function StoreProvider({ children }) {
   const [state, dispatch] = useReducer(reducer, initialVal);
 
-  const addToBasket = (product) => {
-    const updateBasket = state.products;
+  const addToBasket = (product) => {    const updateBasket = state.products;
     updateBasket.push(product);
     updatePrice(updateBasket);
     dispatch({
@@ -20,7 +19,7 @@ function StoreProvider({ children }) {
   };
   const removeFromBasket = (product) => {
     const updateBasket = state.products.filter(
-      (currentProduct) => currentProduct.name !== product.name
+      (currentProduct) => currentProduct.title !== product.title
     );
     updatePrice(updateBasket);
     dispatch({
@@ -41,7 +40,7 @@ function StoreProvider({ children }) {
   };
   const removeFromFavorite = (product) => {
     const updateFavorite = state.favoritList.filter(
-      (currentProduct) => currentProduct.name !== product.name
+      (currentProduct) => currentProduct.title !== product.title
     );
     dispatch({
       type: "remove_favorite_list",

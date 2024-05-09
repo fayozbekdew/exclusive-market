@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 //?local-db
 const SliderDb = [
   {
-    name: "NAMPHONE",
+    name: "IPHONE",
     leftText: "NEW",
     rightText: "RELEASE THIS FALL",
     img: Hero_Slider_1,

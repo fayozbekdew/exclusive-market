@@ -1,5 +1,5 @@
 //?react
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 //?local img
 import { Empty_cart2 } from "../assets";
 //?component
@@ -7,14 +7,19 @@ import { Button, Card, Intro } from "../components";
 //?reducer
 import { StoreContext } from "../context/ProductReducer";
 //?db
-import { productDb } from "./MostSales";
 
 function Search() {
+  const [data, setData ] = useState([])
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/')
+              .then(res=>res.json())
+              .then(s=> setData(s))
+  }, [])
   let { searchText } = useContext(StoreContext);
-  const searchDb = productDb.filter((item) => {
+  const searchDb = data.filter((item) => {
     return searchText.toLowerCase() === ""
       ? ""
-      : item.name.toLowerCase().includes(searchText);
+      : item.title.toLowerCase().includes(searchText);
   });
   return (
     <div className="myContainer flex items-center flex-col">

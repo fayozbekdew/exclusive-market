@@ -1,14 +1,18 @@
 //?react
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 //?component
 import { Button, Card, Intro } from "../components";
-//?db
-import { productDb } from "./MostSales";
 //?toastify for message
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const OurProducts = () => {
+  const [data, setData ] = useState([])
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/')
+              .then(res=>res.json())
+              .then(s=> setData(s))
+  }, [])
   return (
     <div className="myContainer mt-20 mb-32">
       <ToastContainer autoClose={1000} pauseOnHover={false} theme="light" />
@@ -19,7 +23,7 @@ const OurProducts = () => {
         </h2>
       </div>
       <ul className="flex items-center flex-wrap justify-between gap-x-7 gap-y-14 py-14">
-        {productDb.slice(0,8).map((item) => {
+        {data.slice(0,8).map((item) => {
           return (
             <Fragment key={crypto.randomUUID()}>
               <Card toast={toast} favorite data={item} />
@@ -27,7 +31,7 @@ const OurProducts = () => {
           );
         })}
       </ul>
-      <Button center name="View All Products" link="#" />
+      <Button center name="View All Products" link="/product" />
     </div>
   );
 };

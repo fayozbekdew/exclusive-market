@@ -14,7 +14,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
 function Wishlist() {
-  //?responsive for carousel effect
+  //! responsive for carousel effect
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.

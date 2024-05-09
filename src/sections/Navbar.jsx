@@ -1,12 +1,10 @@
 //?react
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
 //?react icons
 import { CiSearch } from "react-icons/ci";
 //?rrd
 import { Link, useNavigate } from "react-router-dom";
-//?db
-import { productDb } from "./MostSales";
 //?local img
 import {
   Account_icon,
@@ -20,18 +18,25 @@ import { StoreContext } from "../context/ProductReducer";
 //?local db
 const NavDb = [
   { name: "Home", link: "/", id: 183883 },
-  { name: "Contact", link: "/contact", id: 2398283 },
+  { name: "Product", link: "/products", id: 18389399349 },
   { name: "About", link: "/about", id: 383293 },
+  { name: "Contact", link: "/contact", id: 2398283 },
   { name: "SignUp", link: "/signup", id: 49029032 },
 ];
 const Navbar = () => {
+  const [data, setData ] = useState([])
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products/')
+              .then(res=>res.json())
+              .then(s=> setData(s))
+  }, [])
   const navigate = useNavigate();
   let [input, setInput] = useState("");
   function submitFn(e) {
     e.preventDefault();
     addSearchText(input);
-    productDb.forEach((product) => {
-      if (product.name.slice(0, 4) === input.slice(0, 4)) {
+    data.forEach((product) => {
+      if (product.title.slice(0, 4) === input.slice(0, 4)) {
         addSearchList(product);
       }
     });

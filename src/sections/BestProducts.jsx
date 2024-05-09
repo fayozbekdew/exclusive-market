@@ -12,9 +12,18 @@ import { Card, Intro } from "../components";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 //?db
-import { productDb } from "./MostSales";
+import { useState } from "react";
+import { useEffect } from "react";
+
+
 
 const BestProducts = () => {
+  const [data, setData ] = useState([])
+useEffect(() => {
+  fetch('https://fakestoreapi.com/products?limit=4')
+            .then(res=>res.json())
+            .then(s=> setData(s))
+}, [])
   return (
     <div className="myContainer mt-[70px]">
       <ToastContainer autoClose={1000} pauseOnHover={false} theme="light" />
@@ -23,12 +32,12 @@ const BestProducts = () => {
         <h2 className="text-[36px] font-semibold leading-[48px] text-black mr-[87px]">
           Best Selling Products
         </h2>
-        <Link className="w-[160px] h-[56px] bg-[#DB4444] rounded-sm flex items-center justify-center text-[16px] font-semibold text-white leading-[24]">
+        <Link to='/product' className="w-[160px] h-[56px] bg-[#DB4444] rounded-sm flex items-center justify-center text-[16px] font-semibold text-white leading-[24]">
           View All
         </Link>
       </div>
       <ul className="flex items-center justify-between mt-14 mb-24">
-        {productDb.slice(0,4).map((element) => {
+        {data && data.map((element) => {
           return (
             <Fragment key={crypto.randomUUID()}>
               <Card toast={toast} favorite data={element} />

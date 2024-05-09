@@ -27,7 +27,7 @@ function Basket() {
     setQuantity(--quantity);
   }
   return (
-    <div className="myContainer py-32">
+    <div className="myContainer pt-5 pb-32">
       <div className=" flex items-center justify-between px-10 py-6 border-[4px] border-gray-200 rounded-md mb-10">
         <p className="font-medium text-[16px]">Product</p>
         <p className="font-medium text-[16px]">Price</p>
@@ -44,7 +44,7 @@ function Basket() {
             >
               <span className="flex items-center gap-x-5">
                 <small className="relative">
-                  <img src={product.img} className="w-12 h-12" />
+                  <img src={product.image} className="w-12 h-12" />
                   <small
                     onClick={() => handleRemove(product)}
                     className="group-hover:flex cursor-pointer hidden items-center justify-center w-5 h-5 bg-[#DB4444] rounded-full absolute top-[-7px] left-[-10px]"
@@ -52,7 +52,7 @@ function Basket() {
                     <img src={close_btn} className="w-2 h-2" alt="close btn" />
                   </small>
                 </small>
-                <p className="">{product.name}</p>
+                <p className="">{product.title}</p>
               </span>
               <p>${product.price}</p>
               <span className="flex items-center justify-center gap-x-4 w-20 h-11 border border-gray-300 rounded-md">
