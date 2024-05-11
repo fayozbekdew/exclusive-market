@@ -49,35 +49,13 @@ const Hero = () => {
       <section className="w-full max-w-[180px] overflow-y-hidden h-[344px] border-r-2 border-gray-500 flex flex-col gap-y-[12px]  ">
         <li className="flex group transition-all duration-1000 flex-col items-end  w-full max-w-[157px]">
           <div className="flex items-center w-full justify-between">
-            <a href="">Woman’s Fashion</a> <FaAngleRight />
+            <Link to="">Woman’s Fashion</Link> <FaAngleRight />
           </div>
-          <ul className="hidden group-hover:flex flex-col border rounded-md ">
-            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
-              acjshdsd
-            </Link>
-            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
-              acjshdsd
-            </Link>
-            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
-              acjshdsd
-            </Link>
-          </ul>
         </li>
         <li className="flex group transition-all duration-1000 flex-col items-end  w-full max-w-[157px]">
           <div className="flex items-center w-full justify-between">
             <a href="">Men ’s Fashion</a> <FaAngleRight />
           </div>
-          <ul className="hidden group-hover:flex flex-col border rounded-md ">
-            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
-              acjshdsd
-            </Link>
-            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
-              acjshdsd
-            </Link>
-            <Link className="hover:bg-gray-100 hover:underline  py-1 px-3 w-full">
-              acjshdsd
-            </Link>
-          </ul>
         </li>
         <li className="flex items-center justify-between w-full max-w-[157px]">
           <a href="">Electronics</a> <FaAngleRight />
