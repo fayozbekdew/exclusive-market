@@ -4,7 +4,7 @@ import { useState } from "react";
 //?react icons
 import { CiSearch } from "react-icons/ci";
 //?rrd
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 //?local img
 import {
   Account_icon,
@@ -48,8 +48,6 @@ const Navbar = () => {
   const { products, favoritList } = useContext(StoreContext);
   //element
   const [favorite, setFavorite] = useState("");
-  const [activeEl, setActiveEl] = useState("Home");
-
   return (
     <div className="border-b-2 sticky-header bg-white bg-opacity-30 backdrop-filter backdrop-blur-md">
       <div className="myContainer  flex items-center justify-between h-[60px]  ">
@@ -63,25 +61,21 @@ const Navbar = () => {
         >
           Exclusive{" "}
         </Link>
-        <ul className="flex items-center gap-x-[48px]">
+        <nav className="flex items-center gap-x-[48px]">
           {NavDb.map((item) => {
             return (
-              <Link
+              <NavLink
                 key={item.id}
                 onClick={() => {
-                  setActiveEl(item.name);
-                  setFavorite("");
                 }}
-                className={`${
-                  activeEl == item.name ? "underline text-[#DB4444] " : ""
-                } text-[16px] font-normal leading-[24px] `}
+                className={({isActive}) => isActive ? 'text-red-400 underline text-[16px] font-normal leading-[24px] ' : 'text-[16px] font-normal leading-[24px] ' }
                 to={item.link}
               >
                 {item.name}
-              </Link>
+              </NavLink>
             );
           })}
-        </ul>
+        </nav>
         <div className="flex items-center gap-x-[20px]">
           <small className="relative flex items-center">
             <form onSubmit={submitFn}>
@@ -101,7 +95,6 @@ const Navbar = () => {
             className="relative"
             onClick={() => {
               setFavorite("/wishlist");
-              setActiveEl("");
             }}
             to="/wishlist"
           >
@@ -123,7 +116,6 @@ const Navbar = () => {
             className="relative"
             onClick={() => {
               setFavorite("/basket");
-              setActiveEl("");
             }}
             to="/basket"
           >

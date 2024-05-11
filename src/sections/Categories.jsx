@@ -3,11 +3,9 @@ import { Fragment, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 //?local img
 import { Jewelery, MensClothing, phones, VomenClothing } from "../assets";
-import { Card, Intro } from "../components";
+import { Card, Intro, SkeletonCom } from "../components";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Skeleton from "react-loading-skeleton";
-//?local db
 const categoriesList = [
   { id: 1, name: "All", link: "", img: phones },
   { id: 1, name: "Electronics", link: "electronics", img: phones },
@@ -21,40 +19,6 @@ const categoriesList = [
   },
 ];
 
-const Loading = () => {
-  return (
-    <div className="flex items-center flex-wrap justify-start gap-x-7 gap-y-14 py-14">
-      <div className="w-[270px] h-[250px]">
-        <span>
-          <Skeleton height={230}/>
-          <p><Skeleton height={20}/></p>
-          <h2><Skeleton height={40}/></h2>
-        </span>
-      </div>
-      <div className="w-[270px] h-[250px]">
-        <span>
-          <Skeleton height={230}/>
-          <p><Skeleton height={20}/></p>
-          <h2><Skeleton height={40}/></h2>
-        </span>
-      </div>
-      <div className="w-[270px] h-[250px]">
-        <span>
-          <Skeleton height={230}/>
-          <p><Skeleton height={20}/></p>
-          <h2><Skeleton height={40}/></h2>
-        </span>
-      </div>
-      <div className="w-[270px] h-[250px]">
-        <span>
-          <Skeleton height={230}/>
-          <p><Skeleton height={20}/></p>
-          <h2><Skeleton height={40}/></h2>
-        </span>
-      </div>
-    </div>
-  );
-};
 const Categories = () => {
   const [data, setData] = useState([]);
   const [url, setUrl] = useState("https://fakestoreapi.com/products/");
@@ -74,10 +38,11 @@ const Categories = () => {
                key={crypto.randomUUID()}
                 onClick={() => {
                   category.link != ""
-                    ? setUrl(
-                        `https://fakestoreapi.com/products/category/${category.link}`
-                      )
-                    : setUrl(`https://fakestoreapi.com/products/`);
+                    ? (setData([]),setUrl(
+                      `https://fakestoreapi.com/products/category/${category.link}`
+                    ))
+                    : (setData([]),
+                      setUrl(`https://fakestoreapi.com/products/`))
                   setActiveEl(category.name);
                 }}
                 className={`${
@@ -95,8 +60,8 @@ const Categories = () => {
           })}
         </ul>
       </div>
-      {data == null ? (
-        <Loading />
+      {data.length == 0 ? (
+        <SkeletonCom/>
       ) : (
         <ul className="flex items-center flex-wrap justify-start gap-x-7 gap-y-14 py-14">
           {data.map((item) => {

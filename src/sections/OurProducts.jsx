@@ -5,6 +5,7 @@ import { Button, Card, Intro } from "../components";
 //?toastify for message
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useLoaderData } from "react-router-dom";
 
 const OurProducts = () => {
   const [data, setData ] = useState([])

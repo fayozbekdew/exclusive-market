@@ -6,7 +6,6 @@ import "react-multi-carousel/lib/styles.css";
 //?react
 import { Fragment, useEffect, useState } from "react";
 //?custom hook
-import { useFetch } from "../hooks/useFetch";
 //?toastify for message
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
