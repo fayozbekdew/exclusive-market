@@ -8,11 +8,42 @@ import {useForm} from 'react-hook-form'
 const SignUp = () => {
   const { register, handleSubmit, resetField} = useForm({
     initialVal:{
-
+      name: '',
+      username: '',
+      password: ''
     }
   })
   function signUpUser(data) {
-    console.log(data)
+    const { name,username, password } = data
+    fetch('https://fakestoreapi.com/users',{
+            method:"POST",
+            body:JSON.stringify(
+                {
+                    username:username,
+                    password:password,
+                    name:{
+                        firstname:name,
+                        lastname:'Doe'
+                    },
+                    address:{
+                        city:'dd',
+                        street:'7835 ;ldsdnew road',
+                        number:3,
+                        zipcode:'12926lls-3874',
+                        geolocation:{
+                            lat:'-37.3s159',
+                            long:'81.1s496'
+                        }
+                    },
+                    phone:'4-570-236-7s033'
+                }
+            )
+        })
+            .then(res=>res.json())
+            .then(j=>console.log(j))
+            resetField('name')
+            resetField('username')
+            resetField('passwordj')
   }
   return (
     <div className="myContainer py-[70px] flex  justify-around">

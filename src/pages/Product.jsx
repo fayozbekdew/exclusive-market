@@ -4,7 +4,8 @@ import { Link, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import { useContext } from "react";
 import { StoreContext } from "../context/ProductReducer";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = () => {
   const { addToBasket} = useContext(StoreContext)
@@ -16,18 +17,18 @@ useEffect(() => {
             .then(s=> setData(s))
 }, [])
 function addBasket() {
-  addToBasket(data);
-  console.log(data)
   toast.success(
-    `${data?.title?.charAt()?.toUpperCase() + data?.title?.slice(1)} added to bag`,
+    `${data.title.charAt().toUpperCase() + data.title.slice(1)} added to bag 21`,
     {
       icon: "🛒",
       className: "toastMessage",
     }
-  );
+    );
+    addToBasket(data);
 }
   return (
     <div className="myContainer">
+      <ToastContainer />
       <div className="flex items-center justify-around py-24">
       <div>
         <img src={data && data?.image} className='w-[400px] h-[400px]' />

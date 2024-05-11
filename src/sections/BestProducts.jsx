@@ -32,7 +32,7 @@ useEffect(() => {
         <h2 className="text-[36px] font-semibold leading-[48px] text-black mr-[87px]">
           Best Selling Products
         </h2>
-        <Link to='/product' className="w-[160px] h-[56px] bg-[#DB4444] rounded-sm flex items-center justify-center text-[16px] font-semibold text-white leading-[24]">
+        <Link to='/products' className="w-[160px] h-[56px] bg-[#DB4444] rounded-sm flex items-center justify-center text-[16px] font-semibold text-white leading-[24]">
           View All
         </Link>
       </div>

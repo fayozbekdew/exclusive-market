@@ -8,24 +8,16 @@ import { useContext } from "react";
 //?reducer
 import { StoreContext } from "../context/ProductReducer";
 import { NavLink } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Card = ({ data, discount, wishlist, favorite, toast }) => {
   //! disturaction
   let { title, price, image } = data;
   //! reducers
-  const { addToBasket, addToFavorite, removeFromFavorite } =
+  const {  addToFavorite, removeFromFavorite } =
     useContext(StoreContext);
   //! functions
-  function addBasket() {
-    addToBasket(data);
-    toast.success(
-      `${data.name.charAt().toUpperCase() + data.name.slice(1)} added to bag`,
-      {
-        icon: "🛒",
-        className: "toastMessage",
-      }
-    );
-  }
   function addFavorite() {
     addToFavorite(data);
     toast.success(
@@ -42,10 +34,11 @@ const Card = ({ data, discount, wishlist, favorite, toast }) => {
     removeFromFavorite(data);
   }
   return (
-    <div
-      key={crypto.randomUUID()}
-      className={` w-[270px] h-[317px]  border flex flex-col  group card `}
+    <NavLink to={`/products/${data.id}`}
+    key={crypto.randomUUID()}
+    className={` w-[270px] h-[317px]  border flex flex-col  group card `}
     >
+      <ToastContainer/>
       <div className="w-[270px] h-[250px] bg-[#fffff] flex items-center justify-center relative">
         <img
           src={image}
@@ -66,7 +59,7 @@ const Card = ({ data, discount, wishlist, favorite, toast }) => {
             className={`${
               wishlist ? "flex" : "hidden"
             } bg-white w-8 h-8 rounded-full items-center justify-center`}
-          >
+            >
             <RiDeleteBin6Line className="w-[22px] h-[22px]" />
           </button>
         </span>
@@ -77,13 +70,12 @@ const Card = ({ data, discount, wishlist, favorite, toast }) => {
         ) : (
           ""
         )}
-        <NavLink to={`products/${data.id}`}
-          
+        {/* <NavLink to={`/products/${data.id}`}
           className="w-full h-10 bg-black absolute bottom-0 rounded-t-[5px] text-white hidden items-center gap-x-2 justify-center transition-all duration-700  group-hover:flex"
         >
           <img src={Basket_White} className="w-6 h-6" />
           Add To Cart
-        </NavLink>
+        </NavLink> */}
       </div>
       <div className="flex flex-col bg-[#ddd] gap-y-2 mt-0 pl-2 pb-2">
         <h4 className="font-semibold text-[16px] leading-[24px] uppercase">
@@ -93,7 +85,7 @@ const Card = ({ data, discount, wishlist, favorite, toast }) => {
           <p className="text-[#DB4444] text-[16px] font-semibold">${price}</p>
         </small>
       </div>
-    </div>
+    </NavLink>
   );
 };
 

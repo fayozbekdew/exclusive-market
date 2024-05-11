@@ -73,7 +73,7 @@ useEffect(() => {
           );
         })}
       </Carousel>
-      <Button center name="View All Products" link="/product" />
+      <Button center name="View All Products" link="/products" />
     </div>
   );
 };

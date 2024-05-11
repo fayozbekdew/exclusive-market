@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <div className="bg-black">
@@ -6,12 +8,12 @@ const Header = () => {
           <p className="text-[14px] font-normal leading-[21px] text-[#FAFAFA]">
             Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
           </p>
-          <a
+          <Link
             className="font-semibold text-[#fafaaf] leading-[24px] underline text-[14px]"
-            href="#"
+            to='/products'
           >
             ShopNow
-          </a>
+          </Link>
         </span>
         <select className="bg-inherit border-none  text-white" name="select">
           <option className="text-black" value="value1" defaultChecked>

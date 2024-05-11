@@ -4,7 +4,7 @@ import './App.css'
 import { ErrorElement } from "./components";
 import { LanguageProvider } from "./context/LanguageContext";
 import HomeLayout from "./layout/HomeLayout";
-import { About, Basket, Contact, Error, Home, Product, SignIn, SignUp, Wishlist } from "./pages";
+import { About, Basket, Contact, Error, FeaturesCategory, Home, Product, SignIn, SignUp, Wishlist } from "./pages";
 import Products from "./pages/Products";
 import { Search } from "./sections";
 
@@ -52,6 +52,11 @@ export default function App() {
         {
           path: "/wishlist",
           element: <Wishlist />,
+          errorElement: <Error />,
+        },
+        {
+          path: "/features",
+          element: <FeaturesCategory />,
           errorElement: <Error />,
         },
         {

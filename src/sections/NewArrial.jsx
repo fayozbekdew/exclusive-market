@@ -12,6 +12,7 @@ import {
 import { Intro } from "../components";
 //?react icons
 import { FaArrowUp } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const NewArrial = () => {
   return (
@@ -30,9 +31,9 @@ const NewArrial = () => {
             <p className="text-[14px] text-[#FAFAFA] mb-2">
               Black and White version of the PS5 coming out on sale.
             </p>
-            <a className="text-[16px] underline" href="#">
+            <Link to='/features' className="text-[16px] underline" >
               Shop Now
-            </a>
+            </Link>
           </div>
         </div>
         <div className="flex flex-col gap-[30px] w-[570px] h-[600px]">

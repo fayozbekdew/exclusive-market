@@ -10,7 +10,8 @@ import { IoIosArrowUp } from "react-icons/io";
 import { Button } from "../components";
 //reducer
 import { StoreContext } from "../context/ProductReducer";
-
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 function Basket() {
   //context
   const { total, products, removeFromBasket } = useContext(StoreContext);
@@ -28,6 +29,7 @@ function Basket() {
   }
   return (
     <div className="myContainer pt-5 pb-32">
+      <ToastContainer />
       <div className=" flex items-center justify-between px-10 py-6 border-[4px] border-gray-200 rounded-md mb-10">
         <p className="font-medium text-[16px]">Product</p>
         <p className="font-medium text-[16px]">Price</p>
